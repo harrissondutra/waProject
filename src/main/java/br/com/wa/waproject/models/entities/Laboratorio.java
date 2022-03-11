@@ -1,5 +1,7 @@
 package br.com.wa.waproject.models.entities;
 
+import br.com.wa.waproject.models.repositories.ExameRepository;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +65,6 @@ public class Laboratorio {
     }
 
     public List<Exame> getListaExames() {
-        listaExames = null;
         return listaExames;
     }
 
