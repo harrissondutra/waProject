@@ -63,6 +63,7 @@ public class Laboratorio {
     }
 
     public List<Exame> getListaExames() {
+        listaExames = null;
         return listaExames;
     }
 
