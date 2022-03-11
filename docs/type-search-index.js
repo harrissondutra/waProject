@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"br.com.wa.waproject.models.entities","l":"Exame"},{"p":"br.com.wa.waproject.models.entities","l":"Laboratorio"},{"p":"br.com.wa.waproject.models.entities","l":"Status"},{"p":"br.com.wa.waproject.models.entities","l":"tipoExame"}];updateSearchResults();

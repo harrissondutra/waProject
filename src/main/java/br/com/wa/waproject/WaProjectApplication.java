@@ -3,6 +3,9 @@ package br.com.wa.waproject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author: Harrisson Dutra
+ */
 @SpringBootApplication
 public class WaProjectApplication {
 
