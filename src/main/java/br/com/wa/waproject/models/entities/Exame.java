@@ -2,6 +2,9 @@ package br.com.wa.waproject.models.entities;
 
 import javax.persistence.*;
 
+/**
+ * @author: Harrisson Dutra
+ */
 @Entity
 @Table(name = "exame")
 public class Exame {

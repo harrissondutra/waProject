@@ -4,6 +4,9 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author: Harrisson Dutra
+ */
 @Entity
 @Table(name = "laboratorio")
 public class Laboratorio {
