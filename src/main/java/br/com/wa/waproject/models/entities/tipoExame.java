@@ -2,7 +2,7 @@ package br.com.wa.waproject.models.entities;
 
 public enum tipoExame {
 
-    Clinico(1, "Clínico"),
+    Clinico(1, "Clinico"),
     Imagem(2, "Imagem");
 
     private final int id;

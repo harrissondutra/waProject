@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -18,40 +19,42 @@ public class ExameController {
     @Autowired
     private ExameRepository exameRepository;
 
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
     public @ResponseBody
-    Exame saveExame(Exame exame){
+    Exame saveBrands(@Valid Exame exame) {
         exameRepository.save(exame);
         return exame;
     }
 
     @GetMapping
-    public Iterable<Exame> getAllExames(){
+    public Iterable<Exame> getAllExame() {
         return exameRepository.findAll();
     }
 
     @GetMapping(path = "/name/{partName}")
-    public Iterable<Exame> getExameByName(@PathVariable String partName){
+    public Iterable<Exame> getExameName(@PathVariable String partName) {
         return exameRepository.searchByNameLike(partName);
     }
 
-    @GetMapping("/page/{numberPage}/{qtdePage}")
-    public Iterable<Exame> getExamePerPage(@PathVariable int numberPage,@PathVariable int qtdePage){
-        if(qtdePage >= 5){
-            qtdePage = 5;
+    @GetMapping("/page/{numberPage}/{qtdPage}")
+    public Iterable<Exame> getExamePerPage(@PathVariable int numberPage, @PathVariable int qtdPage) {
+        if (qtdPage >= 5) {
+            qtdPage = 5;
         }
 
         Pageable page = PageRequest.of(numberPage, 2);
         return exameRepository.findAll(page);
+
     }
 
     @GetMapping("/{id}")
-    public Optional<Exame> findById(@PathVariable int id){
+    public Optional<Exame> getExameById(@PathVariable int id) {
         return exameRepository.findById(id);
     }
 
+
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable int id){
+    public void deleteExameById(@PathVariable int id) {
         exameRepository.deleteById(id);
     }
 }
