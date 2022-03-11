@@ -46,6 +46,10 @@ public class ExameController {
         return exameRepository.findAll(page);
 
     }
+//    @PutMapping()
+//    public Exame alteraExame(Exame exame){
+//       return exameRepository.save(exame);
+//    }
 
     @GetMapping("/{id}")
     public Optional<Exame> getExameById(@PathVariable int id) {

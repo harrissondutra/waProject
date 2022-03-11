@@ -19,7 +19,7 @@ public class Exame {
     private Status status;
 
     @ManyToOne
-    private Laboratorio laboratorio;
+    private Laboratorio laboratorio = new Laboratorio();
 
     public Exame() {
     }
@@ -61,6 +61,7 @@ public class Exame {
     }
 
     public Laboratorio getLaboratorio() {
+        laboratorio.setListaExames(null);
         return laboratorio;
     }
 
