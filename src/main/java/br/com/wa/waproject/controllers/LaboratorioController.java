@@ -17,13 +17,6 @@ public class LaboratorioController {
     @Autowired
     private LaboratorioRepository laboratorioRepository;
 
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
-    public @ResponseBody
-    Laboratorio saveBrands(@Valid Laboratorio lab) {
-        laboratorioRepository.save(lab);
-        return lab;
-    }
-
     @GetMapping
     public Iterable<Laboratorio> getAllLabs() {
         return laboratorioRepository.findAll();
@@ -39,10 +32,8 @@ public class LaboratorioController {
         if (qtdPage >= 5) {
             qtdPage = 5;
         }
-
         Pageable page = PageRequest.of(numberPage, 2);
         return laboratorioRepository.findAll(page);
-
     }
 
     @GetMapping("/{id}")
@@ -50,6 +41,18 @@ public class LaboratorioController {
         return laboratorioRepository.findById(id);
     }
 
+    @PostMapping
+    public @ResponseBody
+    Laboratorio insertLabs(@Valid Laboratorio lab) {
+        laboratorioRepository.save(lab);
+        return lab;
+    }
+
+    @PutMapping
+    public Laboratorio setLabs(@Valid Laboratorio lab){
+        laboratorioRepository.save(lab);
+        return lab;
+    }
 
     @DeleteMapping("/{id}")
     public void deleteLabsById(@PathVariable int id) {

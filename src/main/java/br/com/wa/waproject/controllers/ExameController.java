@@ -19,12 +19,6 @@ public class ExameController {
     @Autowired
     private ExameRepository exameRepository;
 
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
-    public @ResponseBody
-    Exame saveBrands(@Valid Exame exame) {
-        exameRepository.save(exame);
-        return exame;
-    }
 
     @GetMapping
     public Iterable<Exame> getAllExame() {
@@ -41,21 +35,27 @@ public class ExameController {
         if (qtdPage >= 5) {
             qtdPage = 5;
         }
-
         Pageable page = PageRequest.of(numberPage, 2);
         return exameRepository.findAll(page);
-
     }
-//    @PutMapping()
-//    public Exame alteraExame(Exame exame){
-//       return exameRepository.save(exame);
-//    }
 
     @GetMapping("/{id}")
     public Optional<Exame> getExameById(@PathVariable int id) {
         return exameRepository.findById(id);
     }
 
+    @PostMapping
+    public @ResponseBody
+    Exame insertExam(@Valid Exame exame) {
+        exameRepository.save(exame);
+        return exame;
+    }
+
+    @PutMapping()
+    public Exame setExame(@Valid Exame exame){
+       exameRepository.save(exame);
+       return exame;
+    }
 
     @DeleteMapping("/{id}")
     public void deleteExameById(@PathVariable int id) {
